@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Bitcoin Price</title>
+</head>
+<body>
+    <h1>Bitcoin Current Price</h1>
+    <div id="btc-price">Loading...</div>
+
+    <script>
+        fetch('https://your-github-actions-url/btc-price')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('btc-price').innerText = `BTC Price: $${data.bitcoin.usd}`;
+            })
+            .catch(err => {
+                console.error('Error fetching BTC price:', err);
+            });
+    </script>
+</body>
+</html>
